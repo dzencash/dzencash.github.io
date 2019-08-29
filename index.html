@@ -1,186 +1,269 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Template</title>
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
+	<meta charset="UTF-8">
+	<title>Dzen coding</title>
+	<!-- vue -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
-<div class="page">
-<section id="page-header">
-	<div class="container">
-		<div class="row">
-			<div class="margin1"></div>
-			<div class="col-lg-6">
-				    <div class="navbar-header">
-				      <a class="navbar-brand" href="#">
-				        <img alt="Киноволна" src="...">
-				      </a>
-				    </div>
+<body> 
+<div id="vue">
+<div class="container-fluid">
+	<div class="row">
+<!-- leftside -->
+		<div class="col-md-2 mt-3"
+			 id="left-side" 
+			 style="">
+			<div class="logo text-center">
+				<img src="assets/img/logo.svg"
+					 style="max-width: 100px">
 			</div>
-			<div class="col-lg-6">
-				<nav class="nav nav-pills pull-right">
-					<li class="nav-item active">
-						<a href="index.html" class="nav-link">Главная</a>
+			<div class="menu-top-container">
+				<ul class="menu-top" >
+					<li v-for="(item, index) in menu"
+						style="list-style-type: none;">
+						<a href="#" 
+						   @click.prevent="currentPage(item)"
+						   style="text-decoration: none; outline: none;" >
+							{{ index.toUpperCase() }} 
+						</a>
 					</li>
-					<li class="nav-item">
-						<a href="casting.html" class="nav-link">Кастинг</a>
-					</li>
-					<li class="nav-item">
-						<a href="about.html" class="nav-link">О фильме</a>
-					</li>
-					<li class="nav-item">
-						<a href="author.html" class="nav-link">Об авторе</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" id="modal-open" class="nav-link" data-toggle="modal" data-target="#myModal">Контакты</a>
-					</li>
-				</nav>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" id="modal-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body text-center">
-       
-        	<h1>Напишите нам</h1>
-        	<h1>kaukin_production@gmail.com</h1>
-      </div>
-      <div class="modal-footer text-center">
-      	<div class="social">
-				<h4>social <span id="social-span">media</span></h4>
-				<div class="social-icons">
-					<a href="vk.com"><img src="" alt="">asd</a>
-					<a href="facebook.com"><img src="" alt="">asd</a>
-					<a href="telegram.org"><img src="" alt="">asd</a>
-				</div>
+				</ul>				
 			</div>
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>
-    </div>
-  </div>
+		</div>
+<!-- / leftside -->		
+<!-- rightside -->
+		<div class="col mt-3"
+			 id="right-side" 
+			 style="">
+			<transition name="fade">
+				<component :is="currentPageComponent"> </component>	
+			</transition>
+		</div>
+	</div>
+<!-- / rightside -->
 </div>
-<!-- Modal end -->
+</div>
 
-
-
-			</div>
-		</div>
-	</div>
-
-	<div class="container header-form">
-		<div class="margin1"></div>
-		<div class="row well">
-			<div class="col-lg-7 col-md-7 col-sm-6">
-				<h1>ФИЛЬМ</h1>
-				<h3>продюссер Максим Каукин</h3>
-				<p>Я снимаю свой фильм чтобы показать вам уникальную историю.</p>
-			</div>	
-			<div class="col-lg-5 col-md-5 col-sm-6">
-				<form action="">
-					<label for="">Поддержать проект фильма</label>
-					<div class="form-group">
-					    <input type="name" class="form-control" id="main-form-name" placeholder="Ваше имя">
+<script>
+new Vue({
+	el: '#vue',
+	components: {
+		'homePage': {
+			template: `
+			<section id="homePage" class="text-center" style="height:100%">
+				<div class="row mx-0" style="height:30%">
+					<div class="col-md-6 px-0 homePage__box" style="">
+						<a href="http://arstar.ru" target="_blank" id="homePage__box_firstLink">
+							<img src="assets/img/samples/sample1.PNG"/>
+						</a>
 					</div>
-					<div class="form-group">
-						<input type="email" class="form-control" placeholder="Адрес почты для благодарности">
+					<div class="col-md-6 px-0 homePage__box" style="">
+						<a href="http://arstar.ru/rclip.html" target="_blank" style="" id="homePage__box_arstar-landing">
+							<img src="assets/img/samples/sample2.PNG"/>
+						</a>
 					</div>
-
-					<div class="input-group">
-						<span class="input-group-addon">$</span>
-						<input type="text" class="form-control" aria-label="Сумма для поддержки фильма" placeholder="100">
-						<span class="input-group-addon">.00</span>
-					</div>
-					<div class="margin1"></div>
-					<div class="form-check text-center">
-							<input type="radio" class="form-check-input" id="defaultCheck1" value="paypal" name="payinfo">
-							<label class="form-check-label" for="defaultCheck1">Paypal</label>
-							<input type="radio" class="form-check-input" id="defaultCheck2" value="card" name="payinfo">
-							<label class="form-check-label" for="defaultCheck2">Карта банка</label>
-<input type="radio" class="form-check-input" id="defaultCheck3" value="wallet" name="payinfo">
-							<label class="form-check-label" for="defaultCheck3">Кошелек</label>
-					</div>
-					<!-- <div class="form-check">
-							<input type="radio" class="form-check-input" id="defaultCheck1" value="paypal" name="payinfo">
-							<label class="form-check-label" for="defaultCheck1">Paypal</label>
-					</div>
-					<div class="form-check">
-							<input type="radio" class="form-check-input" id="defaultCheck2" value="card" name="payinfo">
-							<label class="form-check-label" for="defaultCheck2">Карта банка</label>
-					</div>
-					<div class="form-check">
-							<input type="radio" class="form-check-input" id="defaultCheck3" value="wallet" name="payinfo">
-							<label class="form-check-label" for="defaultCheck3">Кошелек</label>
-					</div> -->
-					<div class="margin1"></div>
-					<div class="form-group">
-			 			<input type="submit" class="form-control" value="Поддержать проект">		
-					</div>
-
-				</form>
-			</div>
-		</div>
-		
-	</div>
-</section>	<!-- <section id="page-header"> -->
-<section id="main-page">
-	<div class="container well">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="text-center">
-					<h3>10% (500$ / 5000$)</h3>
 				</div>
-				<div class="progress" style="height: 2.5rem">
-					<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+				<div class="row mx-0" style="height:30%">
+					<div class="col-md-6 px-0 homePage__box" style=" filter: invert(1);">
+						<a href="resto/index.html" target="_blank">
+							<img src="assets/img/samples/sample5.PNG" style="" />
+						</a>
+					</div>
+					<div class="col-md-6 px-0 homePage__box" style="">
+						<a href="http://kosmetolog38.ru/" target="_blank">
+							<img src="assets/img/samples/sample4.PNG" style="max-width:300px; object-fit: contain;" />
+						</a>
+					</div>
+				</div>
+				<div class="row mx-0" style="height:30%">
+					<div class="col-md-6 px-0 homePage__box" style="">
+						<a href="http://vestars.ru/" target="_blank">
+							<img src="assets/img/samples/sample3.PNG" style="max-width:300px; object-fit: contain;"/>
+						</a>
+					</div>
+					<div class="col-md-6 px-0 homePage__box" style=" filter: invert(1);">
+						<a href="https://kinovolna.tv" target="_blank">
+							<img src="assets/img/samples/sample6.svg" style="max-width:300px; width: 300px;" />
+						</a>
+					</div>
+				</div>
+			</section>	
+			`
+		},
+		'workPage': {
+			template: `
+			<div>
+			work page content
+			</div>
+
+			`
+		},
+		'socialPage': {
+			template: `
+			<div class="container-fluid" style="height:100%">
+				<div class="row">
+					
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="container well">
-		<div class="row">
-			<div class="col-lg-3 col-md-3 col-sm-5">
-				<img src="assets/img/scenario.jpg" alt="" class="img-thumbnail">
+			`
+		},
+		'servicesPage': {
+			template: `<div>services page content</div>`
+		},
+		'contactPage': {
+			template: `
+			<div class="container-fluid" style="height:auto">
+				<div class="row d-flex justify-content-center text-center">
+					<div class="col">
+						<h1>LET'S WORK TOGETHER, <br> GET IN TOUCH</h1>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col">
+						<div class="insta"
+							 style="text-align: center;">
+							 <a href="https://www.instagram.com/dzenbasharkin/" target="_blank">
+							 	<img src="assets/img/insta.svg" style="max-width:300px" />
+							 </a>
+
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-lg-9 col-md-9 col-sm-7">
-				<h4>Привет, я Максим Каукин!</h4>
-				<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Переулка жизни страна, взобравшись она возвращайся переписали! Рукопись, решила? Языком приставка до скатился образ наш lorem ему эта. Текст, до.</p>
-				<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Переулка жизни страна, взобравшись она возвращайся переписали! Рукопись, решила? Языком приставка до скатился образ наш lorem ему эта. Текст, до.</p>
-			</div>
-		</div>
-	</div> 
-</section>
+			`
+		},
 
 
-<footer>
-	<div class="container footer">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<a href="index.html">&copy; Киноволна 2019</a>
-			</div>
-		</div>
-	</div>
-</footer>
+	},
+	data(){
+		return{
+			menu:{
+				'home':'homePage',
+				'work':'workPage',
+				// 'social': 'socialPage',
+				'services': 'servicesPage',
+				'contact': 'contactPage'
+			},
+			currentPageComponent: 'homePage'
+		}
+	},
+	methods: {
+		currentPage(name){
+			this.currentPageComponent = name;
+		}
+	}
 
+});
+</script>
+<style>
+body{
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.rowFlex{
+	height: 100%; 
+	align-content: flex-end; 
+	justify-content: center; 
+	text-align: center;
+}
+/* Переход между компонентами */
+.fade-enter{
+	opacity: 0;
+}
+.fade-enter-active{
+	transition: opacity .5s ease-out;
+	transition-delay: .6s;
+}
+.fade-leave-active{
+	transition: opacity .5s ease-out;
+}
+.fade-leave-to{
+	opacity: 0;
+}
+/* / Переход между компонентами */
 
+#left-side, #right-side{
+	height: calc(100vh - 2rem)
+}
+#left-side{
+	border-right: 1px solid lightgrey;
+}
+#right-side{
+	padding: 0;
+	margin-left: 2rem;
+}
+#homePage img{
+	max-width: 100%;
+	/*width: 80%;*/
+}
+.menu-top-container{
+	margin-top: 3rem;
+}
+.homePage__box{
+	height: 100%;
+	/*border: 1px solid grey;*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#homePage__box_arstar-landing{
+	padding-top: 35px;
+}
+.homePage__box img{
+	transition-duration: 1s;
+}
+.homePage__box img:hover{
+	transform: scale(1.08);
+	transition-duration: 1s;
+}
 
+@media screen and (max-width: 767px) {
+body{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+#left-side, #right-side{
+	height: auto;
+}
+#right-side, #left-side{
+	margin: 0;
+	padding: 0;
+}
+.menu-top{
+	text-align: center;
+	padding: 0;
+}	
+.menu-top li{
+	display: inline;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+#vue .menu-top-container{
+	margin-top: 5%;
+}
+#homePage img{
+	min-height: 200px;
+	object-fit: none;
+}
+#homePage__box_arstar-landing{
+	padding-top: 0;
+}
+.homePage__box{
+	height: inherit;
+}
+#left-side{
+	border-right: none;
+	border-bottom: 1px solid lightgrey;
+}
+#homePage{
+	position: relative;
+	top: 2.5%;
+}
 
-
-
-
-</div> <!-- <div class="page"> -->
-
-
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/customscript.js"></script>
+}
+</style>
 </body>
 </html>

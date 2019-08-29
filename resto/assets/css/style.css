@@ -1,0 +1,214 @@
+/*
+<section class="container" id="header">
+*/
+#header{
+	background-image: url(../img/section-0-header/Bg.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: auto;
+	background-size: auto;
+	min-height: 90vh;
+	background-position: top;
+}
+#header *{
+	color: #fff;
+}
+#header-content{
+	padding-bottom: 5%;
+}
+#header-menu-item, #header-social-icons{
+	align-self: center;
+	text-align: center;
+}
+#header-menu-item a{
+	padding-right: 1rem;	
+}
+#header #button-set button{
+	background-color: rgba(200,200,200,.5);
+}
+#header #button-set button.isActive{
+	background-color: rgba(100,100,100,.5);
+}
+#description{
+	font-size: 400%;
+	margin-top: 10%;
+}
+#description > div{
+	width: 80%;
+	margin: 0 auto;
+}
+
+/*
+<section class="container" id="dish">
+<section class="container-fluid" id="ingredient">
+*/
+#dish{
+	background-image: url(../img/section-1-dish/pattern.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: auto;
+	background-size: auto;
+	background-position: top;
+}
+#ingredient{
+	background-image: url(../img/section-2-ingridient/bg.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: auto;
+	background-size: auto;
+	background-position: top;
+}
+#ingredient *{
+	color: #fff;
+}
+#dish-description{
+	background-color: rgba(4, 4, 4, 0.7);
+	padding: 2%;
+}
+#dish .heading{
+	color: #cc9900;
+}
+.heading{
+	font-size: 200%;
+}
+#dish .row, #ingredient .row{
+	padding: 5% 0;
+}
+/* 
+<section class="container-fluid" id="restoMenu">
+*/
+#restoMenu{
+	background-image: url(../img/secton-3-menu/pattern.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: top;
+}
+#restoMenu *{
+	color: #cc9900;
+}
+#restoMenu > .container{
+	padding: 5% 0;
+}
+#restoMenu .resto-item-description{
+	color: rgb(50,50,50);
+	/*border-top: 1px solid #cc9900;*/
+}
+#restoMenu .resto-item-box{
+	padding-left: 0;
+}
+#restoMenu h5{
+	border-bottom: 1px solid #cc9900;
+	width: 65%;
+	padding-bottom: .5rem;
+}
+#restoMenu .heading{
+	text-align: center;
+}
+
+/* 
+<section class="container-fluid" id="review">
+*/
+#review{
+	background-image: url(../img/secton-4-re/bg.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: auto;
+	background-size: auto;
+	background-position: 20% 70%;
+}
+#review *{
+	color: #fff;
+}
+#review .content{
+	width: 65%;
+	margin: 5% auto;
+	padding: 10% 5%;
+	background-color: rgba(4, 4, 4, 0.7);
+}
+/* 
+<section class="container-fluid" id="reservation">
+*/
+#reservation{
+	background-image: url(../img/secton-5-reservation/pattern.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+#reservation .content{
+	padding: 5% 0;
+}
+#reservation .reservation-description{
+	padding: 0 5%;
+}
+
+/* 
+<section class="container-fluid" id="reservation">
+*/
+#footer{
+	background-color: #191919;
+	padding: 3% 0;
+}
+#footer * {
+	color: #fff;
+}
+#footer .heading{
+	font-size: 100%;
+}
+#footer .descripton{
+	font-size: 100%;	
+}
+#footer p{
+	margin-bottom: 0;
+}
+.footer-img{
+	margin-top: 5%;
+}
+
+
+
+@media (max-width: 991px) {
+.reservation-image-box{
+	order: 2;
+}
+#header{
+	text-align: center;
+}
+#header-menu div{
+	margin: 2% 0;
+}
+#review .content{
+	width: 100%;
+}
+#description > div{
+	font-size: 50px;
+}
+}
+
+@media (max-width: 475px) {
+#header-menu a{
+	display: block;
+}
+#description > div{
+	font-size: 36px;
+}
+.reservation-image-box .col-6:nth-of-type(1) img{
+	padding-left: 5%;
+}
+.reservation-image-box .col-6:nth-of-type(2) img{
+	padding-right: 5%;
+}
+#restoMenu .resto-menu-items .col-lg-4{
+	text-align: right;
+}
+#restoMenu .resto-box{
+	padding: 0 5%;
+}
+#button-set button{
+	margin-top: 2%;
+}
+#header-menu-item a{
+ 	padding-right: 0;
+}
+#resto__container{
+	margin-left: 0; 
+	margin-right: 0; 
+}
+}

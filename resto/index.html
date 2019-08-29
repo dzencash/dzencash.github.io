@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LAMBDA restoraunt</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Vue.js -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<div id="page">
+<!-- 
+	id="header" 
+-->
+<section id="header" class="container-fluid">
+ <div class="container">
+	<div id="header-menu" class="row">
+		<div class="col-lg-3">
+			<img :src="header.logo" alt="">
+		</div>
+		<div id="header-menu-item" class="col-lg-7">
+			<a href="#" v-for="item in header.menu">{{ item }}</a>
+		</div>
+		<div id="header-social-icons" class="col-lg-2">
+			<a href="#"><img :src="header.socialIcons" alt=""></a>
+		</div>
+	</div>
+	<div id="header-content" class="row">
+		<div id="description" 
+			 class="col-lg-12 text-center"
+			 data-aos="zoom-in" 
+			 data-aos-duration="1200"
+			 data-aos-delay="500">
+			<div>{{ header.descriptionText }}</div>
+		</div>
+		<div class="col-lg-12 text-center decoration"></div>
+		<div id="button-set" 
+			 class="col-lg-12 text-center" 
+			 v-html="header.buttonset">	
+		</div>
+	</div>
+ </div>
+</section>
+<!-- 
+	/ id="header" 
+-->
+<!-- 
+	id="dish"
+ -->
+<section class="container-fluid" id="dish">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-6">
+				<div class="heading" v-text="dish.headingOne"></div>
+				<div class="decoration"></div>
+				<div id="text">
+					<p v-text="dish.text1"></p>
+				</div>
+				<div id="img">
+					<img :src="dish.cookSign" alt="">
+				</div>
+			</div>
+			<div id="dish-img" 
+			     class="col-lg-6">
+				<img :src="dish.plateImg" alt="">
+			</div>
+		</div>
+	</div>	
+</section>	
+<!-- 
+	/ id="dish"
+ -->
+ <!-- 
+	/ id="ingredient"
+ -->
+<section class="container-fluid" id="ingredient">	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6"></div>
+			<div id="dish-description" 
+				 class="col-lg-6 text-center">
+				<div class="heading" v-text="dish.headingTwo"></div>
+				<div class="decoration"></div>
+				<div id="text">
+					<p v-text="dish.text2"></p>
+				</div>
+				<div id="img">
+					<img :src="dish.ingredientImg" alt="">
+				</div>
+			</div>
+		</div>	
+	</div>	
+</section>
+<!-- 
+	/ id="ingredient"
+ -->
+<!-- 
+	/ id="restoMenu"
+ -->
+<section class="container-fluid" id="restoMenu">
+ <div class="container">
+	<div class="row" id="resto__container">
+		<div class="col-lg-6 resto-box">
+			<div class="heading">
+				{{ restoMenu.appetisers.menuHighlight }}
+			</div>
+			<div class="decoration"></div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.appetisers.items.item1.heading }}</h5>
+				
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.appetisers.items.item1.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.appetisers.items.item1.price }}
+					</div>
+				</div>
+			</div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.appetisers.items.item2.heading }}</h5>
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.appetisers.items.item2.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.appetisers.items.item2.price }}
+					</div>
+				</div>
+			</div>
+			<div class="margin1"></div>
+			<div class="heading text-center">
+				{{ restoMenu.salads.menuHighlight }}
+			</div>
+			<div class="decoration"></div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.salads.items.item1.heading }}</h5>
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.salads.items.item1.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.salads.items.item1.price }}
+					</div>
+				</div>
+			</div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.salads.items.item2.heading }}</h5>
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.salads.items.item2.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.salads.items.item2.price }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 resto-box">
+			<div class="heading text-center">
+				{{ restoMenu.starters.menuHighlight }}
+			</div>
+			<div class="decoration"></div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.starters.items.item1.heading }}</h5>
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.starters.items.item1.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.starters.items.item1.price }}
+					</div>
+				</div>
+			</div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.starters.items.item2.heading }}</h5>
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.starters.items.item2.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.starters.items.item2.price }}
+					</div>
+				</div>
+			</div>
+			<div class="margin1"></div>
+			<div class="heading text-center">
+				{{ restoMenu.mainDishes.menuHighlight }}
+			</div>
+			<div class="decoration"></div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.mainDishes.items.item1.heading }}</h5>
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.mainDishes.items.item1.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.mainDishes.items.item1.price }}
+					</div>
+				</div>
+			</div>
+			<div class="resto-menu">
+				<h5>{{ restoMenu.mainDishes.items.item2.heading }}</h5>
+				<div class="row resto-menu-items">
+					<div class="col-lg-8 resto-item-description">
+						{{ restoMenu.mainDishes.items.item2.description }}
+					</div>
+					<div class="col-lg-4">
+						{{ restoMenu.mainDishes.items.item2.price }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </div>	
+</section>
+<!-- 
+	/ id="restoMenu"
+ -->
+<!-- 
+	/ id="review"
+ -->
+<section class="container-fluid" id="review">
+ <div class="container">
+	<div class="row text-center">
+		<div class="col-lg-12">
+			<div class="content">
+				<div class="heading">
+					{{ review.heading }}
+				</div>
+				<div class="decoration"></div>
+				<div class="description">
+					{{ review.description }}
+				</div>
+				<div class="sign margin1">
+					{{ review.sign }}
+				</div>
+			</div>
+		</div>
+	</div>
+ </div>	
+</section>
+<!-- 
+	/ id="review"
+ -->
+<!-- 
+	/ id="reservation"
+ -->
+<section class="container-fluid" id="reservation">
+ <div class="container content">
+ 	<div class="row text-center">
+		<div class="col-lg-6 reservation-image-box">
+			<div class="row">
+				<div class="col-6">
+					<img :src="reservation.imgLeft1" alt="">
+				</div>
+				<div class="col-6">
+					<img :src="reservation.imgLeft2" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 reservation-description">
+			<div class="heading">
+				{{ reservation.heading }}
+			</div>
+			<div class="decoration"></div>
+			<div class="description">
+				{{ reservation.description }}
+			</div>
+			<div class="form text-left">
+			 <form action="form.php" method="POST">
+				<div class="row">
+					<div class="col-lg-6 form-group">
+						<label for="firstName">Name</label>
+						<input type="text" id="firstName" class="form-control">
+						<label for="secondName">Surname</label>
+						<input type="text" id="secondName" class="form-control">
+					</div>
+					<div class="col-lg-6 form-group">
+						<label for="date">Date</label>
+						<input type="text" id="date" class="form-control">
+						<label for="phoneNumber">Number</label>
+						<input type="text" id="phoneNumber" class="form-control">
+					</div>
+					<div class="col-lg-12 form-group text-center">
+						<input type="submit" value="Book now!" class="btn btn-default btn-md">	
+					</div>
+					
+				</div>
+			 </form>
+			</div>
+		</div>
+	</div>
+ </div>
+</section>
+<!-- 
+	/ id="reservation"
+ --> 
+<!-- 
+	/ id="footer"
+ -->
+<section class="container-fluid" id="footer">
+ <div class="container">
+ 	<div class="row text-center">
+		<div class="col-lg-4">
+			<div class="heading">
+				{{ footer.heading1 }}
+			</div>
+			<div class="decoration"></div>
+			<div class="descripton">
+				<p>{{ footer.description1 }}</p>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="heading">
+				{{ footer.heading2 }}
+			</div>
+			<div class="decoration"></div>
+			<div class="descripton" v-html='footer.description2'>
+			</div>
+			<div class="footer-img">
+				<img :src="footer.card" alt="">
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="heading">
+				{{ footer.heading3 }}
+			</div>
+			<div class="decoration"></div>
+			<div class="descripton" v-html='footer.description3'>
+			</div>
+			<div class="footer-img">
+				<a href="#"><img :src="footer.social" alt=""></a>
+			</div>
+		</div>
+	</div>
+ </div>
+</section>
+<!-- 
+	/ id="footer"
+ --> 
+</div>
+
+<script>
+var vm = new Vue({
+ el: '#page',
+  data: {
+   header: {
+   	menu: [
+   	'Home','About', 'Ingridients', 'Menu', 'Reviews', 'Reservations'
+   	], // menu
+   	logo: 'assets/img/section-0-header/Logo.png',
+   	descriptionText: 'the right ingredients for the right food',
+   	buttonset: `
+   		<button class="btn btn-lg btn-default isActive">BOOK A TABLE</button>
+   		<button class="btn btn-lg btn-default">SEE THE MENU</button>
+   	`, // #button-set
+   	socialIcons: 'assets/img/section-0-header/Social.png'
+   }, // header
+   dish: { // + #ingredient
+   	headingOne: 'Just the right food',
+   	headingTwo: 'Fine ingredients',
+   	text1: 'If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out! If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out!',
+   	text2: 'If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out!',
+   	cookSign: 'assets/img/section-1-dish/cook.png',
+   	ingredientImg: 'assets/img/section-2-ingridient/image.png',
+   	plateImg: 'assets/img/section-1-dish/dish.png'
+
+   }, // dish
+   restoMenu: {
+   	appetisers: {
+   	 menuHighlight: 'Appetisers',
+   	 items: {
+   	 	item1:{
+   	 		heading: 'Cornish_Mackerel',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$3.99'
+   	 	}, // starters item1
+   	 	item2:{
+   	 		heading: 'Haloumi',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$23.99'
+   	 	}, // starters item2
+   	 } // items
+   	}, // appetisers
+   	salads:{
+   	 menuHighlight: 'Salads',	
+   	 items: {
+   	 	item1:{
+   	 		heading: 'Cornish_Mackerel',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$13.99'
+   	 	}, // starters item1
+   	 	item2:{
+   	 		heading: 'Haloumi',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$7.99'
+   	 	}, // starters item2
+   	 } // items
+   	}, // salads
+   	starters: {
+   	 menuHighlight: 'Starters',
+   	 items: {
+   	 	item1:{
+   	 		heading: 'Cornish_Mackerel',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$3.99'
+   	 	}, // starters item1
+   	 	item2:{
+   	 		heading: 'Haloumi',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$3.99'
+   	 	}, // starters item2
+   	 } // items
+   	}, // starters
+   	mainDishes: {
+   	 menuHighlight: 'Main Dishes',
+   	 items: {
+   	 	item1:{
+   	 		heading: 'Cornish_Mackerel',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$13.99'
+   	 	}, // mainDishes item1
+   	 	item2:{
+   	 		heading: 'Cornish_Mackerel',
+   	 		description: 'Refreshing traditional cucumber and garlic yoghurt dip.',
+   	 		price: '$9.99'
+   	 	}, // mainDishes item2
+   	 } // items
+   	}, // mainDishes
+
+   }, // restoMenu
+   review: {
+   	heading: 'Guest Reviews',
+   	description: `
+If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out!
+   	`,
+   	sign: '- food inc, New York'
+   }, // review
+   reservation: {
+   	heading: 'Just the right food',
+   	description: `
+If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food.
+Delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out! Perfect materials and freshly baked food.`,
+	imgLeft1:'assets/img/secton-5-reservation/image1.png',
+	imgLeft2:'assets/img/secton-5-reservation/image2.png',
+
+   }, // reservation
+   footer: {
+   	heading1: 'About Us',
+   	heading2: 'Opening Hours',
+   	heading3: 'Our Location',
+   	description1: `
+Lambda's new and expanded Chelsea location represents a truly authentic
+Greek patisserie, featuring breakfasts of fresh croissants and steaming 
+bowls of café.
+Lamda the best restaurant in town`,
+   	description2: `
+<p>Mon-Thu: 7:00am-8:00pm </p>
+<p>Fri-Sun: 7:00am-10:00pm</p>
+`,
+   	description3: `
+<p>19th Paradise Street Sitia</p>
+<p>128 Meserole Avenue</p>
+` ,
+	card: 'assets/img/secton-6-footer/cards.png',
+	social: 'assets/img/secton-6-footer/icons.png',
+   } // footer
+  }, // data
+  computed: {
+
+  },
+  mounted: function(){
+  	// Initialize AOS
+	AOS.init();
+  }
+});
+</script>
+</body>
+</html>
